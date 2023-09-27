@@ -49,6 +49,8 @@
 
             vendorSha256 =
               "sha256-zH8N6Bw1I+bFxBiXQtRL/Y2UyE4ix/kdlEsEuwPSZXs=";
+
+            postInstall = "mv $out/bin/go-lsp $out/bin/snippets-ls";
           };
         });
 
