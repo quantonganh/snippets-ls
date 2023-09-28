@@ -25,6 +25,57 @@ $ go build -o ~/go/bin/snippets-ls main.go
 
 Don't forget to append `~/go/bin` to your `$PATH`.
 
+### Install via [nix flake](https://nixos.wiki/wiki/Flakes) with [home-manager](https://nix-community.github.io/home-manager/index.html#ch-nix-flakes)
+
+Include the following in the `inputs` of `flake.nix` for `home-manager`:
+```nix
+inputs = {
+  # load compatible nixpkgs and home-mananger repos; they need not be 23.05
+  nixpkgs = { url = "github:nixos/nixpkgs/nixos-23.05"; };
+  home-manager = {
+    url = "github:nix-community/home-manager/release-23.05";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+  # ...
+  snippets-ls = {
+    url = "github:quantonganh/snippets-ls";
+    inputs.nixpkgs.follows = "nixpkgs";
+  };
+};
+```
+There are in turn many suitable ways to configure the `outputs` of `flake.nix`.  One option is to use an overlay with something like
+```nix
+outputs = inputs:
+  with inputs;
+  let
+    system = "x86_64-linux"; # or some other system
+    pkgs = import nixpkgs {
+      inherit system;
+      overlays = [ pkgs_overlay ];
+    };
+    # ...
+    pkgs_overlay = final: prev: {
+      # ...
+      external.snippets-ls = snippets-ls.packages.${prev.system}.snippets-ls;
+    };
+
+  in {
+    homeConfigurations.YOUR-USER-NAME-HERE = home-manager.lib.homeManagerConfiguration {
+      inherit pkgs;
+      modules = [ ./home.nix ];
+    };
+  };
+};
+```
+The use of this overlay allows you to call this packages with `pkgs.external.snippets-ls`, such the list of packages in `home.nix` can look something like
+```nix
+home.packages = with pkgs; [
+  # ...
+  external.snippets-ls
+];
+```
+
+
 ## Usage
 
 Create your own snippets follow [VSCode syntax](https://code.visualstudio.com/docs/editor/userdefinedsnippets#_create-your-own-snippets). Alternatively, you can make use of [pre-existing](https://github.com/microsoft/vscode-go/blob/master/snippets/go.json) [sample](https://github.com/rust-lang/vscode-rust/blob/master/snippets/rust.json) for various programming languages.
