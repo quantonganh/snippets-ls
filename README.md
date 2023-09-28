@@ -48,7 +48,7 @@ There are in turn many suitable ways to configure the `outputs` of `flake.nix`. 
 outputs = inputs:
   with inputs;
   let
-    system = "x86_64-linux"; # or some other system
+    system = "x86_64-linux"; # or other system as applicable (such as "x86_64-darwin")
     pkgs = import nixpkgs {
       inherit system;
       overlays = [ pkgs_overlay ];
@@ -58,7 +58,6 @@ outputs = inputs:
       # ...
       external.snippets-ls = snippets-ls.packages.${prev.system}.snippets-ls;
     };
-
   in {
     homeConfigurations.YOUR-USER-NAME-HERE = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
