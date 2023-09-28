@@ -45,7 +45,7 @@
             vendorSha256 =
               "sha256-zH8N6Bw1I+bFxBiXQtRL/Y2UyE4ix/kdlEsEuwPSZXs=";
 
-            # rename go-lsp to snippets-ls
+            # rename binary from go-lsp to snippets-ls
             postInstall = "mv $out/bin/go-lsp $out/bin/snippets-ls";
           };
         });
