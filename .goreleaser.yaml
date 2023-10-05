@@ -52,9 +52,10 @@ changelog:
 # vim: set ts=2 sw=2 tw=0 fo=cnqoj
 
 brews:
-  - tap:
+  - repository:
       owner: quantonganh
       name: homebrew-tap
+    folder: Formula
     homepage: https://github.com/quantonganh/snippets-ls
     description: >-
       A simple language server to just insert snippets into Helix.
