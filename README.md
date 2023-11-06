@@ -15,12 +15,8 @@ brew install quantonganh/tap/snippets-ls
 
 ### Install via go
 
-Due to the presence of a `replace` directive in the [go.mod](https://github.com/quantonganh/snippets-ls/blob/main/go.mod#L13) file, [`go install` cannot be used](https://github.com/golang/go/issues/44840). You have to clone and build the package manually:
-
 ```sh
-$ git clone git@github.com:quantonganh/snippets-ls.git
-$ cd snippets-ls
-$ go build -o ~/go/bin/snippets-ls main.go
+$ go install github.com/quantonganh/snippets-ls@latest
 ```
 
 Don't forget to append `~/go/bin` to your `$PATH`.
