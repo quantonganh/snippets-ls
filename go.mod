@@ -1,4 +1,4 @@
-module github.com/quantonganh/go-lsp
+module github.com/quantonganh/snippets-ls
 
 go 1.20
 
