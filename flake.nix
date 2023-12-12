@@ -43,10 +43,7 @@
             # remeber to bump this hash when your dependencies change.
             #vendorSha256 = pkgs.lib.fakeSha256;
             vendorSha256 =
-              "sha256-zH8N6Bw1I+bFxBiXQtRL/Y2UyE4ix/kdlEsEuwPSZXs=";
-
-            # rename binary from go-lsp to snippets-ls
-            postInstall = "mv $out/bin/go-lsp $out/bin/snippets-ls";
+              "sha256-SbTtKuJxZw+2du+/nwA79ZufgEDS/1qqG2sqqn1x9tM=";
           };
         });
 
