@@ -21,7 +21,7 @@ $ go install github.com/quantonganh/snippets-ls@latest
 
 Don't forget to append `~/go/bin` to your `$PATH`.
 
-### Install via [nix flake](https://nixos.wiki/wiki/Flakes) with [home-manager](https://nix-community.github.io/home-manager/index.html#ch-nix-flakes)
+### Install via [nix flake](https://nixos.wiki/wiki/Flakes) with [home-manager](https://nix-community.github.io/home-manager/index.xhtml#ch-nix-flakes)
 
 Include the following in the `inputs` of `flake.nix` for `home-manager`:
 ```nix
