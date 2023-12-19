@@ -41,12 +41,10 @@
             # it should be "out-of-band" with other tooling (eg. gomod2nix).
             # To begin with it is recommended to set this, but one must
             # remeber to bump this hash when your dependencies change.
-            #vendorSha256 = pkgs.lib.fakeSha256;
-            vendorHash =
+            # buildGoModule expects vendorSha256 and doesn't support vendorHash yet
+            vendorSha256 =
               "sha256-0FGBtSYKaSjaJlxr8mpXyRKG88ThJCSL3Qutf8gkllw=";
 
-            # rename binary from go-lsp to snippets-ls
-            postInstall = "mv $out/bin/go-lsp $out/bin/snippets-ls";
           };
         });
 
