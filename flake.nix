@@ -2,7 +2,7 @@
   description = "Snippet LSP for helix";
 
   # nixpkgs version to use
-  inputs.nixpkgs.url = "nixpkgs/nixos-21.11";
+  inputs.nixpkgs.url = "nixpkgs/nixos-23.11";
 
   outputs = { self, nixpkgs }:
     let
@@ -40,10 +40,9 @@
             # mechanisms to tell you what the hash should be or determine what
             # it should be "out-of-band" with other tooling (eg. gomod2nix).
             # To begin with it is recommended to set this, but one must
-            # remeber to bump this hash when your dependencies change.
-            # buildGoModule expects vendorSha256 and doesn't support vendorHash yet
-            vendorSha256 =
-              "sha256-0FGBtSYKaSjaJlxr8mpXyRKG88ThJCSL3Qutf8gkllw=";
+            # remember to bump this hash when your dependencies change.
+            vendorHash =
+              "sha256-SbTtKuJxZw+2du+/nwA79ZufgEDS/1qqG2sqqn1x9tM=";
 
           };
         });
