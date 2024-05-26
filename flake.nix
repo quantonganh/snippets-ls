@@ -43,7 +43,7 @@
             # remeber to bump this hash when your dependencies change.
             # buildGoModule expects vendorSha256 and doesn't support vendorHash yet
             vendorSha256 =
-              "sha256-0FGBtSYKaSjaJlxr8mpXyRKG88ThJCSL3Qutf8gkllw=";
+              "sha256-SbTtKuJxZw+2du+/nwA79ZufgEDS/1qqG2sqqn1x9tM=";
 
           };
         });
