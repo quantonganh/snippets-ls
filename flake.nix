@@ -41,7 +41,7 @@
             # it should be "out-of-band" with other tooling (eg. gomod2nix).
             # To begin with it is recommended to set this, but one must
             # remember to bump this hash when your dependencies change.
-            vendorSha256 =
+            vendorHash =
               "sha256-SbTtKuJxZw+2du+/nwA79ZufgEDS/1qqG2sqqn1x9tM=";
 
           };
