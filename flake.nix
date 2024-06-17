@@ -42,8 +42,16 @@
             # To begin with it is recommended to set this, but one must
             # remember to bump this hash when your dependencies change.
             vendorHash =
-              "sha256-SbTtKuJxZw+2du+/nwA79ZufgEDS/1qqG2sqqn1x9tM=";
+              "sha256-0FGBtSYKaSjaJlxr8mpXyRKG88ThJCSL3Qutf8gkllw=";
 
+
+            meta = with pkgs.lib; {
+              description = "A simple language server to insert snippets into Helix";
+              homepage = "https://github.com/quantonganh/snippets-ls";
+              license = licenses.mit;
+              maintainers = with maintainers; [bddvlpr];
+              mainProgram = "snippets-ls";
+            };
           };
         });
 
